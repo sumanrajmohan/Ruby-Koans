@@ -14,7 +14,34 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+
+   [a, b, c].each do |arg|
+      if arg < 1
+        raise TriangleError, "Can't have a negative or zero side"
+      end
+    end
+
+  hyp = [a,b,c].max
+  array = [a,b,c]
+  array.delete hyp
+  if array.size > 1
+    if (array[0] + array[1]) <= hyp
+      raise TriangleError, "Failed triangle side length sanity check"
+    end
+  end
+
+  
+  if (a == b && b == c)
+    :equilateral
+  else 
+    if ( a == b || b == c || a == c )
+      :isosceles
+    else
+      :scalene
+    end 
+  end
+  
+  
 end
 
 # Error class used in part 2.  No need to change this code.
