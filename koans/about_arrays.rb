@@ -18,7 +18,7 @@ class AboutArrays < EdgeCase::Koan
     assert_equal [1, 2], array
 
     array << 333
-    assert_equal [1,2,333], array
+    assert_equal [1,2, 333], array
   end
 
   def test_accessing_array_elements
@@ -26,26 +26,23 @@ class AboutArrays < EdgeCase::Koan
 
     assert_equal :peanut, array[0]
     assert_equal :peanut, array.first
-    assert_equal :jelly, array[3]
-    assert_equal :jelly, array.last
-    assert_equal :jelly, array[-1]
-    assert_equal :butter, array[-3]
+    assert_equal :jelly, array[3]   # WTFFFFF 
+    assert_equal :jelly, array.last 
+    assert_equal :jelly, array[-1]  # WTFFFFF 
+    assert_equal :butter, array[-3] # WTFFFFF 
   end
 
   def test_slicing_arrays
     array = [:peanut, :butter, :and, :jelly]
 
     assert_equal [:peanut], array[0,1]
-    assert_equal [:peanut, :butter], array[0,2]
-    assert_equal [:and, :jelly], array[2,2]
-    assert_equal [:and, :jelly], array[2,20]
+    assert_equal [:peanut,:butter], array[0,2]
+    assert_equal [:and,:jelly], array[2,2]
+    assert_equal [:and,:jelly], array[2,20]
     assert_equal [], array[4,0]
     assert_equal [], array[4,100]
     assert_equal nil, array[5,0]
   end
-  
-  ## For understanding [4,0], this link helped lot for mainly groking it. 
-  ## http://stackoverflow.com/questions/3568222/array-slicing-in-ruby-looking-for-explanation-for-illogical-behaviour-taken-fro :) 
 
   def test_arrays_and_ranges
     assert_equal Range, (1..5).class
@@ -57,14 +54,10 @@ class AboutArrays < EdgeCase::Koan
   def test_slicing_with_ranges
     array = [:peanut, :butter, :and, :jelly]
 
-    assert_equal [:peanut, :butter,:and], array[0..2]
+    assert_equal [:peanut, :butter, :and], array[0..2]
     assert_equal [:peanut, :butter], array[0...2]
-    assert_equal [:and, :jelly], array[2..-1]  ##  Totally bewildered by this 
+    assert_equal [:and, :jelly], array[2..-1]
   end
-
-  ## For help understanding it... go fourth and see it here in all it's glory!  
-  ## http://stackoverflow.com/questions/3837742/ruby-range-is-empty-but-slicing-with-it-produces-elements
-
 
   def test_pushing_and_popping_arrays
     array = [1,2]
@@ -81,7 +74,7 @@ class AboutArrays < EdgeCase::Koan
     array = [1,2]
     array.unshift(:first)
 
-    assert_equal [:first, 1,2], array
+    assert_equal [:first,1,2], array
 
     shifted_value = array.shift
     assert_equal :first, shifted_value

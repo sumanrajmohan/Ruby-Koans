@@ -44,9 +44,6 @@ class AboutObjects < EdgeCase::Koan
 
     # THINK ABOUT IT:
     # What pattern do the object IDs for small integers follow?
-    
-    # Even numbers for system objects, odd numbers for integers 
-    
   end
 
   def test_clone_creates_a_different_object

@@ -33,16 +33,6 @@ class AboutNil < EdgeCase::Koan
     # or
     #    obj == nil
     # Why?
-    
-    
-    ### Err... http://stackoverflow.com/questions/1972266/obj-nil-vs-obj-nil
-    ##  Both are the same
-    
-    ##  If you like micro optimizations all the objects will return false 
-    ##  to the .nil? message except for the object nil itself, while the 
-    ##  object using the == message will perform a tiny micro comparison 
-    ##  with the other object to determine if it is the same object.
-    
   end
 
 end
